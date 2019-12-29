@@ -1,0 +1,21 @@
+<p>自分MMR: <input type="number" id="height"></p>
+<p>相手MMR: <input type="number" id="weight"></p>
+<p><input type="button" value="MMRを計算" onclick="calc();"></p>
+<p></p>
+<script type="text/javascript">
+var para = document.createElement('p'); 
+  function calc(){
+    var h = Number(document.getElementById("height").value);
+    var w = Number(document.getElementById("weight").value);
+
+    var win = Math.round(h+(1-(1/(1+10**((w-h)/250))))*100)
+    var lose = Math.round(h+(0-(1/(1+10**((w-h)/250))))*100)
+    para.textContent = win
+    alert(
+    "勝ちMMR:" + win
+    +"\n"+ 
+    "負けMMR:" + lose  );
+  }
+ </script>
+
+ 
